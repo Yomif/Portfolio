@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caleb Kehinde Alonge Software Developer | Data Analyst | IT Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,560;1,9..144,400;1,9..144,480&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#1B140F;
+    --espresso-2:#231A13;
+    --clay:#B6551C;
+    --clay-soft:#E08A48;
+    --umber:#4A3527;
+    --parchment:#F1E9DA;
+    --parchment-dim:#B9AC98;
+    --hairline:rgba(241,233,218,0.13);
+    --hairline-strong:rgba(241,233,218,0.24);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 18% 0%, rgba(182,85,28,0.08), transparent 45%),
+      var(--espresso);
+    color:var(--parchment);
+    font-family:'Work Sans',sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+  ::selection{background:var(--clay);color:var(--parchment);}
+
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:480;letter-spacing:-0.012em;}
+
+  /* ---------- FRAME ---------- */
+  .frame-edge{
+    position:fixed;inset:14px;
+    border:1px solid var(--hairline);
+    pointer-events:none;z-index:60;
+  }
+  @media (max-width:700px){.frame-edge{display:none;}}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:40;
+    background:rgba(27,20,15,0.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--hairline);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;}
+  .nav-name{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:480;letter-spacing:0.01em;}
+  .nav-name b{color:var(--clay-soft);font-weight:480;}
+  .nav-links{display:flex;gap:6px;list-style:none;font-size:0.88rem;color:var(--parchment-dim);}
+  .nav-links a{
+    text-decoration:none;padding:8px 16px;border-radius:100px;
+    transition:color .2s ease,background .2s ease;
+  }
+  .nav-links a:hover{color:var(--parchment);background:rgba(241,233,218,0.06);}
+  .nav-status{display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--parchment-dim);}
+  .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--clay-soft);
+    box-shadow:0 0 0 3px rgba(224,138,72,0.18);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .dot{animation:pulse 2.6s ease-in-out infinite;}
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 3px rgba(224,138,72,0.18);}
+    50%{box-shadow:0 0 0 6px rgba(224,138,72,0.08);}
+  }
+  @media (max-width:900px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:1.08fr 0.92fr;
+    align-items:stretch;
+    min-height:86vh;
+    border-bottom:1px solid var(--hairline);
+  }
+  .hero-copy{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:70px 60px 70px 40px;
+    max-width:640px;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--clay-soft);
+    font-size:0.92rem;
+    margin-bottom:28px;
+    font-style:italic;
+    font-family:'Fraunces',serif;
+  }
+  .hero-eyebrow::before{
+    content:"";width:26px;height:1px;background:var(--clay-soft);
+  }
+  .hero-copy h1{
+    font-size:clamp(2.5rem,4.6vw,3.8rem);
+    line-height:1.08;
+    margin-bottom:28px;
+    opacity:0;
+    animation:rise .8s cubic-bezier(.22,.9,.3,1) .05s forwards;
+  }
+  .hero-copy h1 em{
+    font-style:italic;
+    color:var(--clay-soft);
+    font-weight:400;
+  }
+  .hero-desc{
+    font-size:1.08rem;
+    color:var(--parchment-dim);
+    max-width:480px;
+    margin-bottom:38px;
+    opacity:0;
+    animation:rise .8s cubic-bezier(.22,.9,.3,1) .18s forwards;
+  }
+  .hero-actions{
+    display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;
+    opacity:0;
+    animation:rise .8s cubic-bezier(.22,.9,.3,1) .3s forwards;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-copy h1,.hero-desc,.hero-actions{animation:none;opacity:1;}
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 28px;
+    border-radius:2px;
+    font-size:0.93rem;
+    text-decoration:none;
+    transition:all .25s ease;
+    position:relative;
+  }
+  .btn-primary{background:var(--clay);color:#1B140F;border:1px solid var(--clay);font-weight:500;}
+  .btn-primary:hover{background:var(--clay-soft);border-color:var(--clay-soft);transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--hairline-strong);color:var(--parchment);}
+  .btn-ghost:hover{border-color:var(--clay-soft);color:var(--clay-soft);}
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(3,auto);gap:40px;
+    border-top:1px solid var(--hairline);
+    padding-top:26px;
+  }
+  .hero-meta dt{
+    font-family:'Fraunces',serif;font-size:1.55rem;color:var(--parchment);
+    margin-bottom:5px;
+  }
+  .hero-meta dd{font-size:0.82rem;color:var(--parchment-dim);max-width:15ch;}
+
+  .hero-photo{
+    position:relative;
+    overflow:hidden;
+    background:var(--umber);
+  }
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:center 14%;
+  }
+  .hero-photo::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(to right, rgba(27,20,15,0.5), rgba(27,20,15,0) 26%),
+               linear-gradient(to top, rgba(27,20,15,0.35), rgba(27,20,15,0) 30%);
+  }
+  .hero-photo-tag{
+    position:absolute;left:24px;bottom:24px;z-index:2;
+    font-size:0.78rem;color:var(--parchment-dim);
+    display:flex;align-items:center;gap:8px;
+  }
+  .hero-photo-tag span.dot{background:var(--clay-soft);}
+
+  /* ---------- STACK STRIP ---------- */
+  .stack-strip{
+    border-bottom:1px solid var(--hairline);
+    padding:20px 0;
+    overflow:hidden;
+    position:relative;
+  }
+  .stack-strip::before,.stack-strip::after{
+    content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;
+  }
+  .stack-strip::before{left:0;background:linear-gradient(to right, var(--espresso), transparent);}
+  .stack-strip::after{right:0;background:linear-gradient(to left, var(--espresso), transparent);}
+  .stack-track{
+    display:flex;gap:0;white-space:nowrap;width:max-content;
+    font-family:'Fraunces',serif;font-style:italic;
+    font-size:1.1rem;
+    color:var(--parchment-dim);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .stack-track{animation:scroll-left 32s linear infinite;}
+    .stack-strip:hover .stack-track{animation-play-state:paused;}
+  }
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .stack-track span{padding:0 30px;border-right:1px solid var(--hairline);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:100px 0;border-bottom:1px solid var(--hairline);}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:58px;gap:24px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.9rem,3vw,2.6rem);}
+  .section-tag{color:var(--clay-soft);font-family:'Fraunces',serif;font-style:italic;font-size:1rem;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:start;
+  }
+  .about-photo{
+    border:1px solid var(--hairline-strong);
+    position:relative;
+  }
+  .about-photo img{filter:grayscale(20%) contrast(1.03);}
+  .about-photo::before{
+    content:"";position:absolute;inset:-8px;border:1px solid var(--hairline);
+    pointer-events:none;
+  }
+  .about-copy p{color:var(--parchment-dim);font-size:1.05rem;margin-bottom:20px;max-width:62ch;}
+  .about-copy p strong{color:var(--parchment);font-weight:500;}
+  .about-copy p.lede{
+    font-family:'Fraunces',serif;font-size:1.3rem;line-height:1.42;
+    color:var(--parchment);margin-bottom:28px;font-weight:400;
+  }
+  .about-facts{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;
+    margin-top:36px;padding-top:32px;border-top:1px solid var(--hairline);
+  }
+  .about-facts dt{font-size:0.8rem;color:var(--parchment-dim);margin-bottom:6px;}
+  .about-facts dd{font-family:'Fraunces',serif;font-size:1.12rem;}
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{position:relative;padding-left:40px;}
+  .timeline::before{
+    content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;
+    background:linear-gradient(to bottom, var(--hairline-strong), var(--hairline) 90%, transparent);
+  }
+  .tl-item{position:relative;padding-bottom:60px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-40px;top:7px;
+    width:11px;height:11px;border-radius:50%;
+    background:var(--espresso);
+    border:1px solid var(--clay-soft);
+  }
+  .tl-item.current::before{background:var(--clay-soft);}
+  .tl-date{
+    font-size:0.84rem;color:var(--clay-soft);margin-bottom:7px;
+    font-family:'Fraunces',serif;font-style:italic;
+    display:flex;align-items:center;gap:10px;
+  }
+  .tl-tag{
+    font-size:0.7rem;color:var(--parchment-dim);border:1px solid var(--hairline-strong);
+    padding:2px 9px;border-radius:100px;font-style:normal;font-family:'Work Sans',sans-serif;
+  }
+  .tl-role{font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:4px;}
+  .tl-org{color:var(--parchment-dim);font-size:0.95rem;margin-bottom:18px;}
+  .tl-item ul{list-style:none;max-width:70ch;}
+  .tl-item li{
+    position:relative;padding-left:20px;margin-bottom:11px;
+    color:var(--parchment-dim);font-size:0.97rem;
+  }
+  .tl-item li::before{
+    content:"";position:absolute;left:0;top:0.62em;
+    width:8px;height:1px;background:var(--clay-soft);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .skill-group{
+    background:var(--espresso);
+    padding:30px 32px;
+    transition:background .25s ease;
+  }
+  .skill-group:hover{background:var(--espresso-2);}
+  .skill-group h3{
+    font-size:1rem;margin-bottom:18px;font-weight:480;
+    color:var(--clay-soft);
+    font-family:'Fraunces',serif;font-style:italic;
+  }
+  .skill-group ul{list-style:none;}
+  .skill-group li{
+    padding:9px 0;
+    border-bottom:1px solid var(--hairline);
+    color:var(--parchment-dim);
+    font-size:0.95rem;
+    display:flex;align-items:center;gap:10px;
+  }
+  .skill-group li::before{
+    content:"";width:4px;height:4px;border-radius:50%;background:var(--parchment-dim);flex:none;
+  }
+  .skill-group li:last-child{border-bottom:none;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-list{display:flex;flex-direction:column;}
+  .edu-item{
+    display:grid;grid-template-columns:1fr auto;gap:16px;
+    padding:28px 0;border-bottom:1px solid var(--hairline);
+    transition:padding-left .25s ease;
+  }
+  .edu-item:hover{padding-left:8px;}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item h3{font-size:1.2rem;margin-bottom:4px;}
+  .edu-item p{color:var(--parchment-dim);font-size:0.95rem;}
+  .edu-date{color:var(--clay-soft);font-family:'Fraunces',serif;font-style:italic;font-size:0.95rem;white-space:nowrap;}
+
+  /* ---------- RECOMMENDATIONS ---------- */
+  .rec-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .rec-card{
+    background:var(--espresso);
+    padding:34px 30px 28px;
+    display:flex;flex-direction:column;
+    transition:background .25s ease;
+  }
+  .rec-card:hover{background:var(--espresso-2);}
+  .rec-mark{
+    font-family:'Fraunces',serif;font-size:2.6rem;line-height:1;
+    color:var(--clay-soft);opacity:0.8;margin-bottom:6px;
+  }
+  .rec-quote{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;
+    line-height:1.5;color:var(--parchment);
+    margin-bottom:26px;flex:1;
+  }
+  .rec-source{border-top:1px solid var(--hairline);padding-top:16px;}
+  .rec-name{font-size:0.95rem;color:var(--parchment);margin-bottom:3px;font-weight:500;}
+  .rec-role{font-size:0.82rem;color:var(--parchment-dim);}
+  .rec-org{font-size:0.82rem;color:var(--clay-soft);margin-top:2px;}
+  @media (max-width:900px){
+    .rec-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{padding:100px 0 60px;}
+  .contact-inner{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:end;
+  }
+  footer h2{font-size:clamp(2rem,4vw,3.1rem);margin-bottom:24px;line-height:1.14;}
+  footer p.lede{color:var(--parchment-dim);max-width:48ch;margin-bottom:32px;font-size:1.05rem;}
+  .contact-list{list-style:none;}
+  .contact-list li{
+    padding:17px 0;border-top:1px solid var(--hairline);
+    display:flex;justify-content:space-between;font-size:0.98rem;
+  }
+  .contact-list li:last-child{border-bottom:1px solid var(--hairline);}
+  .contact-list span:first-child{color:var(--parchment-dim);}
+  .contact-list a{text-decoration:none;transition:color .2s ease;}
+  .contact-list a:hover{color:var(--clay-soft);}
+  .foot-bottom{
+    margin-top:68px;display:flex;justify-content:space-between;
+    font-size:0.82rem;color:var(--parchment-dim);flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-photo{height:56vh;order:-1;}
+    .hero-copy{padding:52px 26px;max-width:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo{max-width:280px;}
+    .skills-grid{grid-template-columns:1fr;}
+    .contact-inner{grid-template-columns:1fr;}
+    .wrap{padding:0 22px;}
+    section{padding:64px 0;}
+    .hero-meta{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="frame-edge"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Caleb <b>Alonge</b></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#recommendations">Recommendations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-status"><span class="dot"></span>Open to work</div>
+  </div>
+</nav>
+
+<section class="hero" style="border-bottom:1px solid var(--hairline);padding:0;">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Lagos, Nigeria</div>
+    <h1>Caleb Alonge builds <em>practical software</em> and turns data into useful insights.</h1>
+    <p class="hero-desc">Computer Science graduate focused on software development, data analysis, and IT support, with hands-on experience in CRM systems, technical support, data management, customer service, and remote operations.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="#experience">See experience</a>
+    </div>
+    <dl class="hero-meta">
+      <div><dt>3+ yrs</dt><dd>hands on ICT &amp; support</dd></div>
+      <div><dt>500+</dt><dd>records managed at 99% accuracy</dd></div>
+      <div><dt>3.78</dt><dd>CGPA, B.Sc. Computer Science</dd></div>
+    </dl>
+  </div>
+  <div class="hero-photo">
+    <img src="images/hero.jpg" alt="Portrait of Caleb Alonge seated, wearing a brown three-piece suit">
+    <div class="hero-photo-tag"><span class="dot"></span>Victoria Island, Lagos</div>
+  </div>
+</section>
+
+<div class="stack-strip">
+  <div class="wrap" style="padding:0 0;">
+    <div class="stack-track">
+      <span>Python</span><span>Java</span><span>SQL</span><span>HTML / CSS / JavaScript</span><span>Salesforce</span><span>SPSS</span><span>Google Sheets &amp; Excel</span>
+      <span>Python</span><span>Java</span><span>SQL</span><span>HTML / CSS / JavaScript</span><span>Salesforce</span><span>SPSS</span><span>Google Sheets &amp; Excel</span>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <div class="section-tag">the short version</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/secondary.jpg" alt="Portrait of Caleb Alonge standing beside a wooden chair">
+      </div>
+      <div class="about-copy">
+        <p class="lede">I enjoy solving practical problems with code, data, and dependable technical support.</p>
+        <p>I graduated from Ajayi Crowther University with a <strong>B.Sc. in Computer Science</strong> (Second Class Upper, CGPA 3.78). Since then, I have applied that foundation across ICT support, data management, customer service, and remote operations. My experience includes maintaining computer systems, resolving ICT requests, managing high-volume records, and working with CRM and reporting tools.</p>
+        <p>My primary career direction is software development and data. I work with <strong>Python, Java, SQL, HTML, CSS, and JavaScript</strong>, while my experience with Salesforce, SPSS, Excel, Google Sheets, and end-user support gives me a broader understanding of how technology supports real business needs.</p>
+        <p>I am seeking entry-level opportunities in <strong>software development, data analysis, and IT support</strong>. I am also available for remote roles in <strong>data entry, customer support, virtual assistance, and administrative operations</strong> where accuracy, communication, and digital skills are valued.</p>
+        <dl class="about-facts">
+          <div><dt>Based in</dt><dd>Victoria Island, Lagos</dd></div>
+          <div><dt>Open to</dt><dd>Software, Data &amp; Remote roles</dd></div>
+          <div><dt>Certification</dt><dd>Project Mgmt &amp; SPSS, OAU</dd></div>
+          <div><dt>Memberships</dt><dd>NACOS · DL4ALL</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <div class="section-tag">professional experience &amp; impact</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-date">Jan 2025 — Mar 2026 <span class="tl-tag">Remote</span></div>
+        <div class="tl-role">Customer Relationship Service Officer</div>
+        <div class="tl-org">Haven-Mall</div>
+        <ul>
+          <li>Managed remote inventory operations across 30+ states, improving stock accuracy using Google Sheets and internal tracking systems.</li>
+          <li>Used Salesforce CRM to log, track, and resolve customer inquiries, improving first-contact resolution rates.</li>
+          <li>Applied Salesforce reporting to monitor service KPIs and surface recurring issues for data-driven decisions.</li>
+          <li>Tracked waybills and coordinated with logistics teams to keep order fulfilment on schedule.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Jan 2025 — Dec 2025 <span class="tl-tag">NYSC</span></div>
+        <div class="tl-role">ICT Teacher / Support Officer</div>
+        <div class="tl-org">Command Day Secondary School, Ede, Osun State</div>
+        <ul>
+          <li>Delivered Computer Studies lessons to 200+ students, designing lesson plans aligned with the national curriculum.</li>
+          <li>Managed and maintained 50+ computer systems, keeping the lab consistently available with minimal downtime.</li>
+          <li>Maintained accurate academic records for 200+ students, supporting reporting and administrative compliance.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Jul 2023 — Oct 2023 <span class="tl-tag">Internship</span></div>
+        <div class="tl-role">ICT Intern</div>
+        <div class="tl-org">International Institute of Tropical Agriculture (IITA), Ibadan</div>
+        <ul>
+          <li>Managed data entry for 500+ records at 99% accuracy, preserving data integrity across departments.</li>
+          <li>Resolved 30–40 ICT requests weekly at the front desk, reducing average service response time.</li>
+          <li>Delivered technical support across 100+ system installations, lifting system availability by 20%.</li>
+          <li>Coordinated ICT support for 50+ researchers and staff across multiple departments.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Sep 2022 — Jul 2023 <span class="tl-tag">Internship</span></div>
+        <div class="tl-role">ICT Intern</div>
+        <div class="tl-org">Ajayi Crowther University, ICT Unit, Oyo</div>
+        <ul>
+          <li>Implemented hardware and software installations on 50+ computers, cutting downtime by 30%.</li>
+          <li>Delivered ICT support to 100+ staff and students, keeping academic operations running smoothly.</li>
+          <li>Managed records with 99% accuracy and strict confidentiality; supported production of 200+ staff ID cards.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <div class="section-tag">technical &amp; professional toolkit</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Software Development</h3>
+        <ul>
+          <li>Python</li>
+          <li>Java</li>
+          <li>SQL</li>
+          <li>HTML, CSS, JavaScript</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Analysis</h3>
+        <ul>
+          <li>SPSS</li>
+          <li>Data entry &amp; records management</li>
+          <li>Salesforce reporting &amp; analytics</li>
+          <li>Google Sheets &amp; Excel</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>IT, Support &amp; Remote Operations</h3>
+        <ul>
+          <li>Hardware &amp; software installation</li>
+          <li>Network troubleshooting</li>
+          <li>CRM &amp; customer service (Salesforce)</li>
+          <li>Customer support &amp; remote operations</li>
+          <li>Data entry &amp; administrative support</li>
+          <li>Quality assurance &amp; compliance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <div class="section-tag">&amp; certifications</div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div>
+          <h3>Certificate in Project Management &amp; Data Analysis (SPSS)</h3>
+          <p>Obafemi Awolowo University (OAU)</p>
+        </div>
+        <div class="edu-date">Jan 2025 — Dec 2025</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <h3>B.Sc. Computer Science — Second Class Upper</h3>
+          <p>Ajayi Crowther University, Oyo State · CGPA 3.78 / 5.00</p>
+        </div>
+        <div class="edu-date">Oct 2021 — Jul 2024</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <h3>Senior School Certificate Examination (SSCE)</h3>
+          <p>Command Day Secondary School, Mokola, Ibadan</p>
+        </div>
+        <div class="edu-date">Sep 2013 — Jul 2019</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recommendations">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recommendations</h2>
+      <div class="section-tag">in their words</div>
+    </div>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-mark">&ldquo;</div>
+        <p class="rec-quote">As Corpers Liaison Officer, Caleb was consistently honest, reliable and handworking the kind of person I'd rehire without hesitation.</p>
+        <div class="rec-source">
+          <div class="rec-name">Lt. Col. IS Abdussalam</div>
+          <div class="rec-role">Commandant</div>
+          <div class="rec-org">Command Day Secondary School, Ede</div>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-mark">&ldquo;</div>
+        <p class="rec-quote">Caleb completed his ICT internship with satisfactory performance, pursuing the work enthusiastically and showing a genuine willingness to learn.</p>
+        <div class="rec-source">
+          <div class="rec-name">Sougrynoma Z. Sore</div>
+          <div class="rec-role">Head, Capacity Development Office</div>
+          <div class="rec-org">International Institute of Tropical Agriculture (IITA)</div>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-mark">&ldquo;</div>
+        <p class="rec-quote">Elected Corpers Liaison Officer by his peers, Caleb showed exceptional dedication and discipline, working efficiently under pressure throughout his service year.</p>
+        <div class="rec-source">
+          <div class="rec-name">Capt. K Audu</div>
+          <div class="rec-role">Acting Officer Commanding, Admin Squadron</div>
+          <div class="rec-org">HQ Engineer Construction Command, Nigerian Army</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <h2>Let's connect.</h2>
+        <p class="lede">Open to entry-level software development, data analysis, and IT support opportunities, as well as remote data entry, customer support, virtual assistance, and administrative roles.</p>
+      </div>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:alongecal12@gmail.com">alongecal12@gmail.com</a></li>
+        <li><span>Phone</span><span>+234 905 712 2977</span></li>
+        <li><span>Location</span><span>Victoria Island, Lagos, Nigeria</span></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>Caleb Kehinde Alonge</span>
+      <span>Software · Data · IT Support · Remote Operations</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
